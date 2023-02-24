@@ -2,7 +2,7 @@ FROM python:3.10-slim-bullseye
 
 # Set default environment variables
 ENV DEBIAN_FRONTEND=noninteractive
-ENV TZ="America/New_York"
+ENV TZ="America/Chicago"
 ENV PYTHONUNBUFFERED=1
 
 # Create working directory and relevant dirs
