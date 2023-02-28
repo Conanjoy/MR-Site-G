@@ -85,9 +85,10 @@ def browserSetup(isMobile: bool, user_agent: str = PC_USER_AGENT, proxy: str = N
             "webrtc.nonproxied_udp_enabled" : False}
     if ARGS.account_browser:
         prefs["detach"] = True
-    if ARGS.use_proxy and proxy is not None:
+    if proxy is not None:
         if isProxyWorking(proxy):
             options.add_argument(f'--proxy-server={proxy}')
+            prBlue(f"Using proxy: {proxy}")
         else:
             prYellow(f"[PROXY] Your entered proxy is not working, continuing without proxy.")
     options.add_experimental_option("prefs", prefs)
@@ -1583,7 +1584,7 @@ def farmer():
                 browser.quit()
 
             if MOBILE:
-                browser = browserSetup(True, account.get('mobile_user_agent', MOBILE_USER_AGENT, account.get('proxy', None)))
+                browser = browserSetup(True, account.get('mobile_user_agent', MOBILE_USER_AGENT), account.get('proxy', None))
                 print('[LOGIN]', 'Logging-in mobile...')
                 login(browser, account['username'], account['password'], True)
                 prGreen('[LOGIN] Logged-in successfully !')
