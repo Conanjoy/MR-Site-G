@@ -2,7 +2,7 @@ FROM python:3.9-alpine3.16
 
 # Set default environment variables
 ENV DEBIAN_FRONTEND=noninteractive
-ENV TZ="America/New_York"
+ENV TZ="Asia/Singapore"
 ENV PYTHONUNBUFFERED=1
 
 # Create working directory and relevant dirs
